@@ -22,6 +22,19 @@ env.roledefs = {
 	'website'  : ['52.7.89.116'],
 }
 
+def install_all():
+    """ install all requirements """
+    setup_installs()
+    install_supervisor()
+    
+def update_website_configuration():
+    """ updates the website config files"""
+	put('config/supervisor_website.conf',
+        '/etc/supervisor/conf.d/gunicorn.conf', 
+        use_sudo=True)
+	sudo('supervisorctl update')
+	sudo('supervisorctl reload')
+
 def install_supervisor():
     sudo("mkdir -p /mnt/logs/supervisor/")
     sudo("chown ubuntu.ubuntu /mnt/logs/supervisor/")

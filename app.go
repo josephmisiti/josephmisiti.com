@@ -16,5 +16,5 @@ func main() {
   m.Get("/", func(r render.Render) {
      r.HTML(200, "index", "")
    })
-  m.Run()
+  m.RunOnAddr(":8000")
 }
