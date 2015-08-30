@@ -22,6 +22,13 @@ env.roledefs = {
 	'website'  : ['52.7.89.116'],
 }
 
+def deploy():
+    """ deploy the web application """
+    with cd(env.REMOTE_CODEBASE_PATH):
+        run("git pull")
+        run("go build app.go")
+        sudo("supervisorctl reload")
+
 def install_all():
     """ install all requirements """
     setup_installs()
