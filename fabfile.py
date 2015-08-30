@@ -29,11 +29,11 @@ def install_all():
     
 def update_website_configuration():
     """ updates the website config files"""
-	put('config/supervisor_website.conf',
+    put('config/supervisor_website.conf', 
         '/etc/supervisor/conf.d/gunicorn.conf', 
         use_sudo=True)
-	sudo('supervisorctl update')
-	sudo('supervisorctl reload')
+    sudo('supervisorctl update')
+    sudo('supervisorctl reload')
 
 def install_supervisor():
     sudo("mkdir -p /mnt/logs/supervisor/")
@@ -43,6 +43,15 @@ def install_supervisor():
     sudo('sleep 2')
     sudo('/etc/init.d/supervisor start')
     
+    
+def install_nginx():
+    """ install nginx """
+    sudo("apt-get install -y nginx")
+    sudo("mkdir -p /mnt/logs/nginx/")
+    sudo("chown ubuntu.ubuntu /mnt/logs/nginx/")
+    put("config/nginx.conf", "/etc/nginx/nginx.conf", use_sudo=True)
+    sudo("mkdir -p /var/logs/nginx")
+    sudo("/etc/init.d/nginx restart")
 
 def setup_installs():
     """ Installs apt-get packages """
