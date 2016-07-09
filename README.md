@@ -4,11 +4,16 @@ Install go via `brew`:
 
 `brew install go`
 
-Install the required packages:
+Install the required packages and build the web application:
 
 ```
-go get github.com/go-martini/martini
-go get github.com/martini-contrib/render
+go get
+```
+
+and
+
+```
+go build
 ```
 
 Run the server

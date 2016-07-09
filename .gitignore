@@ -1,3 +1,6 @@
+pkg/*
+src/*
+bin/*
 app
 *.pyc
 *DS_Store
