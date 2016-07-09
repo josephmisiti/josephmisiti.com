@@ -17,7 +17,7 @@ func main() {
 		r.HTML(200, "index", "")
 	})
 	m.Get("/what-im-reading", func(r render.Render) {
-		r.HTML(200, "index", "")
+		r.HTML(200, "what-im-reading", "")
 	})
 	m.RunOnAddr(":8000")
 }
