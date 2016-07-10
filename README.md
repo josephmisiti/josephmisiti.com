@@ -1,5 +1,7 @@
 #### Installation
 
+Source go (html + golang server) for www.josephmisiti.com
+
 Install go via `brew`:
 
 `brew install go`
@@ -19,5 +21,5 @@ go build
 Run the server
 
 ```
-./run.sh
+make
 ```
