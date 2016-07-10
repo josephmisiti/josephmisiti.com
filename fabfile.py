@@ -26,7 +26,7 @@ def deploy():
     """ deploy the web application """
     with cd(env.REMOTE_CODEBASE_PATH):
         run("git pull")
-        run("go build app.go")
+        run("go build -o app")
         sudo("supervisorctl reload")
 
 def install_all():
